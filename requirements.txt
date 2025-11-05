@@ -1,0 +1,32 @@
+
+# Core dependencies for Footfall Counter using YOLOv8
+ultralytics>=8.0.0  # YOLOv8 model and BoT-SORT tracking (essential)
+opencv-python-headless>=4.5.0  # OpenCV for computer vision (headless for Colab)
+numpy>=1.21.0  # Numerical operations and array handling
+
+# Optional (for local/Jupyter setups)
+opencv-python>=4.5.0  # Full OpenCV if not using headless (local use)
+Pillow>=8.0.0  # Image processing (if adding extra features)
+matplotlib>=3.3.0  # For plotting metrics (optional visualization)
+
+# Notes:
+# - Built-ins (collections, base64, time): No install needed
+# - Colab-specific (IPython, google.colab): Auto-available in Colab
+# - GPU support: Install PyTorch via ultralytics (auto-handled)
+
+# After cloning your repo
+cd footfall-counter-yolov8
+pip install -r requirements.txt
+
+# In Google Colab (alternative, if manual)
+!pip install ultralytics opencv-python-headless numpy
+
+
+| Package                | Role in Project                      | Minimum Version | Why Included?                                      |  |
+| ---------------------- | ------------------------------------ | --------------- | -------------------------------------------------- |  |
+| ultralytics            | YOLOv8 detection & BoT-SORT tracking | ≥8.0.0          | Core formodel = YOLO('yolov8n.pt')andmodel.track() |  |
+| opencv-python-headless | Image processing & drawing           | ≥4.5.0          | Forcv2.rectangle(),cv2.line()in Colab              |  |
+| numpy                  | Array math                           | ≥1.21.0         | For centroid calc:(y1 + y2) // 2                   |  |
+| opencv-python(opt.)    | Local GUI support                    | ≥4.5.0          | Non-headless for local runs (e.g., imshow)         |  |
+| Pillow(opt.)           | Image extras                         | ≥8.0.0          | Future image handling                              |  |
+| matplotlib(opt.)       | Plotting                             | ≥3.3.0          | Metrics visualization                              |  |
